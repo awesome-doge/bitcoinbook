@@ -1,0 +1,1192 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Appendix A: Transaction Script Language Operators, Constants, and Symbols · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="appdx-bips.html" />
+    
+    
+    <link rel="prev" href="appdx-bitcoinwhitepaper.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="preface.html">
+            
+                <a href="preface.html">
+            
+                    
+                    Preface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="glossary.html">
+            
+                <a href="glossary.html">
+            
+                    
+                    Quick Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="ch01.html">
+            
+                <a href="ch01.html">
+            
+                    
+                    Chapter 1: 'Introduction'
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="ch02.html">
+            
+                <a href="ch02.html">
+            
+                    
+                    Chapter 2: 'How Bitcoin Works'
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="ch03.html">
+            
+                <a href="ch03.html">
+            
+                    
+                    Chapter 3: 'Bitcoin Core: The Reference Implementation'
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="ch04.html">
+            
+                <a href="ch04.html">
+            
+                    
+                    Chapter 4: 'Keys, Addresses'
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="ch05.html">
+            
+                <a href="ch05.html">
+            
+                    
+                    Chapter 5: 'Wallets'
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="ch06.html">
+            
+                <a href="ch06.html">
+            
+                    
+                    Chapter 6: 'Transactions'
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="ch07.html">
+            
+                <a href="ch07.html">
+            
+                    
+                    Chapter 7: 'Advanced Transactions and Scripting'
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="ch08.html">
+            
+                <a href="ch08.html">
+            
+                    
+                    Chapter 8: 'The Bitcoin Network'
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="ch09.html">
+            
+                <a href="ch09.html">
+            
+                    
+                    Chapter 9: 'The Blockchain'
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="ch10.html">
+            
+                <a href="ch10.html">
+            
+                    
+                    Chapter 10: 'Mining and Consensus'
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="ch11.html">
+            
+                <a href="ch11.html">
+            
+                    
+                    Chapter 11: 'Bitcoin Security'
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="ch12.html">
+            
+                <a href="ch12.html">
+            
+                    
+                    Chapter 12: 'Blockchain Applications'
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="appdx-bitcoinwhitepaper.html">
+            
+                <a href="appdx-bitcoinwhitepaper.html">
+            
+                    
+                    Appendix A: The Bitcoin Whitepaper by Satoshi Nakamoto
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.17" data-path="appdx-scriptops.html">
+            
+                <a href="appdx-scriptops.html">
+            
+                    
+                    Appendix A: Transaction Script Language Operators, Constants, and Symbols
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="appdx-bips.html">
+            
+                <a href="appdx-bips.html">
+            
+                    
+                    Appendix A: Bitcoin Improvement Proposals
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="appdx-bitcore.html">
+            
+                <a href="appdx-bitcore.html">
+            
+                    
+                    Appendix A: Bitcore
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="appdx-pycoin.html">
+            
+                <a href="appdx-pycoin.html">
+            
+                    
+                    Appendix A: pycoin, ku, and tx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="appdx-bx.html">
+            
+                <a href="appdx-bx.html">
+            
+                    
+                    Appendix A: Bitcoin Explorer (bx) Commands
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Appendix A: Transaction Script Language Operators, Constants, and Symbols</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div class="sect1">
+<h2 id="tx_script_ops">Appendix A: Transaction Script Language Operators, Constants, and Symbols</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Tables and descriptions sourced from <a href="https://en.bitcoin.it/wiki/Script" class="bare" target="_blank">https://en.bitcoin.it/wiki/Script</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="#tx_script_ops_table_pushdata">Push value onto stack</a> shows operators for pushing values onto the stack.</p>
+</div>
+<table id="tx_script_ops_table_pushdata" class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Push value onto stack</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Symbol</th>
+<th class="tableblock halign-left valign-top">Value (hex)</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_0 or OP_FALSE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x00</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An empty array is pushed onto the stack</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1-75</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x01-0x4b</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Push the next N bytes onto the stack, where N is 1 to 75 bytes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_PUSHDATA1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x4c</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The next script byte contains N, push the following N bytes onto the stack</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_PUSHDATA2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x4d</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The next two script bytes contain N, push the following N bytes onto the stack</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_PUSHDATA4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x4e</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The next four script bytes contain N, push the following N bytes onto the stack</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_1NEGATE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x4f</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Push the value &quot;&#x2013;1&quot; onto the stack</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_RESERVED</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x50</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Halt - Invalid transaction unless found in an unexecuted OP_IF clause</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_1 or OP_TRUE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x51</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Push the value &quot;1&quot; onto the stack</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_2 to OP_16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x52 to 0x60</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For OP_N, push the value &quot;N&quot; onto the stack, e.g., OP_2 pushes &quot;2&quot;</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph pagebreak-before">
+<p><a href="#tx_script_ops_table_control">Conditional flow control</a> shows conditional flow control operators.</p>
+</div>
+<table id="tx_script_ops_table_control" class="tableblock frame-all grid-all spread">
+<caption class="title">Table 2. Conditional flow control</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Symbol</th>
+<th class="tableblock halign-left valign-top">Value (hex)</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_NOP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x61</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Do nothing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_VER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x62</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Halt&#x2014;Invalid transaction unless found in an unexecuted OP_IF clause</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_IF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x63</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Execute the statements following if top of stack is not 0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_NOTIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x64</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Execute the statements following if top of stack is 0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_VERIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x65</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Halt&#x2014;Invalid transaction</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_VERNOTIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x66</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Halt&#x2014;Invalid transaction</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_ELSE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x67</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Execute only if the previous statements were not executed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_ENDIF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x68</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End the OP_IF, OP_NOTIF, OP_ELSE block</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_VERIFY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x69</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check the top of the stack, halt and invalidate transaction if not TRUE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_RETURN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x6a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Halt and invalidate transaction</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="#tx_script_ops_table_timelock">Timelock operations</a> shows operators used for timelocks.</p>
+</div>
+<table id="tx_script_ops_table_timelock" class="tableblock frame-all grid-all spread">
+<caption class="title">Table 3. Timelock operations</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Symbol</th>
+<th class="tableblock halign-left valign-top">Value (hex)</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_CHECKLOCKTIMEVERIFY (previously OP_NOP2)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xb1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Marks transaction as invalid if the top stack item is greater than the transaction&#x2019;s nLockTime field, otherwise script evaluation continues as though an OP_NOP was executed. Transaction is also invalid if 1. the stack is empty; or 2. the top stack item is negative; or 3. the top stack item is greater than or equal to 500000000 while the transaction&#x2019;s nLockTime field is less than 500000000, or vice versa; or 4. the input&#x2019;s nSequence field is equal to 0xffffffff. The precise semantics are described in BIP-65</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_CHECKSEQUENCEVERIFY (previously OP_NOP3)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xb2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Marks transaction as invalid if the relative lock time of the input (enforced by BIP 0068 with nSequence) is not equal to or longer than the value of the top stack item. The precise semantics are described in BIP-112</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="#tx_script_ops_table_stack">Stack operations</a> shows operators used to manipulate the stack.</p>
+</div>
+<table id="tx_script_ops_table_stack" class="tableblock frame-all grid-all spread">
+<caption class="title">Table 4. Stack operations</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Symbol</th>
+<th class="tableblock halign-left valign-top">Value (hex)</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_TOALTSTACK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x6b</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pop top item from stack and push to alternative stack</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_FROMALTSTACK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x6c</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pop top item from alternative stack and push to stack</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_2DROP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x6d</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pop top two stack items</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_2DUP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x6e</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duplicate top two stack items</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_3DUP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x6f</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duplicate top three stack items</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_2OVER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x70</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Copy the third and fourth items in the stack to the top</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_2ROT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x71</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Move the fifth and sixth items in the stack to the top</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_2SWAP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x72</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Swap the two top pairs of items in the stack</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_IFDUP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x73</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duplicate the top item in the stack if it is not 0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_DEPTH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x74</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Count the items on the stack and push the resulting count</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_DROP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x75</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pop the top item in the stack</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_DUP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x76</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duplicate the top item in the stack</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_NIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x77</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pop the second item in the stack</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_OVER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x78</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Copy the second item in the stack and push it onto the top</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_PICK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x79</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pop value N from top, then copy the Nth item to the top of the stack</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_ROLL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x7a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pop value N from top, then move the Nth item to the top of the stack</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_ROT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x7b</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rotate the top three items in the stack</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_SWAP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x7c</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Swap the top two items on the stack</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_TUCK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x7d</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Copy the top item and insert it between the top and second item.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="#tx_script_ops_table_splice">String splice operations</a> shows string operators.</p>
+</div>
+<table id="tx_script_ops_table_splice" class="tableblock frame-all grid-all spread">
+<caption class="title">Table 5. String splice operations</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Symbol</th>
+<th class="tableblock halign-left valign-top">Value (hex)</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>OP_CAT</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x7e</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled (concatenates top two items)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>OP_SUBSTR</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x7f</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled (returns substring)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>OP_LEFT</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x80</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled (returns left substring)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>OP_RIGHT</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x81</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled (returns right substring)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_SIZE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x82</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Calculate string length of top item and push the result</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="#tx_script_ops_table_binmath">Binary arithmetic and conditionals</a> shows binary arithmetic and boolean logic operators.</p>
+</div>
+<table id="tx_script_ops_table_binmath" class="tableblock frame-all grid-all spread">
+<caption class="title">Table 6. Binary arithmetic and conditionals</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Symbol</th>
+<th class="tableblock halign-left valign-top">Value (hex)</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>OP_INVERT</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x83</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled (Flip the bits of the top item)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>OP_AND</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x84</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled (Boolean AND of two top items)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>OP_OR</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x85</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled (Boolean OR of two top items)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>OP_XOR</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x86</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled (Boolean XOR of two top items)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_EQUAL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x87</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Push TRUE (1) if top two items are exactly equal, push FALSE (0) otherwise</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_EQUALVERIFY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x88</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Same as OP_EQUAL, but run OP_VERIFY after to halt if not TRUE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_RESERVED1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x89</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Halt - Invalid transaction unless found in an unexecuted OP_IF clause</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_RESERVED2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x8a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Halt - Invalid transaction unless found in an unexecuted OP_IF clause</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph pagebreak-before">
+<p><a href="#tx_script_ops_table_numbers">Numeric operators</a> shows numeric (arithmetic) operators.</p>
+</div>
+<table id="tx_script_ops_table_numbers" class="tableblock frame-all grid-all spread">
+<caption class="title">Table 7. Numeric operators</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Symbol</th>
+<th class="tableblock halign-left valign-top">Value (hex)</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_1ADD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x8b</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add 1 to the top item</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_1SUB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x8c</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subtract 1 from the top item</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>OP_2MUL</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x8d</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled (multiply top item by 2)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>OP_2DIV</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x8e</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled (divide top item by 2)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_NEGATE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x8f</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flip the sign of top item</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_ABS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x90</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Change the sign of the top item to positive</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_NOT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x91</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If top item is 0 or 1 Boolean flip it, otherwise return 0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_0NOTEQUAL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x92</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If top item is 0 return 0, otherwise return 1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_ADD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x93</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pop top two items, add them and push result</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_SUB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x94</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pop top two items, subtract first from second, push result</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_MUL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x95</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled (multiply top two items)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_DIV</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x96</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled (divide second item by first item)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_MOD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x97</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled (remainder divide second item by first item)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_LSHIFT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x98</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled (shift second item left by first item number of bits)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_RSHIFT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x99</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disabled (shift second item right by first item number of bits)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_BOOLAND</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x9a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean AND of top two items</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_BOOLOR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x9b</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean OR of top two items</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_NUMEQUAL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x9c</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return TRUE if top two items are equal numbers</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_NUMEQUALVERIFY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x9d</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Same as NUMEQUAL, then OP_VERIFY to halt if not TRUE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_NUMNOTEQUAL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x9e</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return TRUE if top two items are not equal numbers</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_LESSTHAN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x9f</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return TRUE if second item is less than top item</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_GREATERTHAN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xa0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return TRUE if second item is greater than top item</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_LESSTHANOREQUAL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xa1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return TRUE if second item is less than or equal to top item</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_GREATERTHANOREQUAL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xa2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return TRUE if second item is great than or equal to top item</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_MIN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xa3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return the smaller of the two top items</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_MAX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xa4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return the larger of the two top items</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_WITHIN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xa5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return TRUE if the third item is between the second item (or equal) and first item</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph pagebreak-before">
+<p><a href="#tx_script_ops_table_crypto">Cryptographic and hashing operations</a> shows cryptographic function operators.</p>
+</div>
+<table id="tx_script_ops_table_crypto" class="tableblock frame-all grid-all spread">
+<caption class="title">Table 8. Cryptographic and hashing operations</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Symbol</th>
+<th class="tableblock halign-left valign-top">Value (hex)</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_RIPEMD160</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xa6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return RIPEMD160 hash of top item</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_SHA1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xa7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return SHA1 hash of top item</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_SHA256</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xa8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return SHA256 hash of top item</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_HASH160</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xa9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return RIPEMD160(SHA256(x)) hash of top item</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_HASH256</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xaa</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Return SHA256(SHA256(x)) hash of top item</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_CODESEPARATOR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xab</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mark the beginning of signature-checked data</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_CHECKSIG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xac</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pop a public key and signature and validate the signature for the transaction&#x2019;s hashed data, return TRUE if matching</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_CHECKSIGVERIFY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xad</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Same as CHECKSIG, then OP_VERIFY to halt if not TRUE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_CHECKMULTISIG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xae</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Run CHECKSIG for each pair of signature and public key provided. All must match. Bug in implementation pops an extra value, prefix with OP_NOP as workaround</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_CHECKMULTISIGVERIFY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xaf</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Same as CHECKMULTISIG, then OP_VERIFY to halt if not TRUE</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="#tx_script_ops_table_nop">Nonoperators</a> shows nonoperator symbols.</p>
+</div>
+<table id="tx_script_ops_table_nop" class="tableblock frame-all grid-all spread">
+<caption class="title">Table 9. Nonoperators</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Symbol</th>
+<th class="tableblock halign-left valign-top">Value (hex)</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_NOP1-OP_NOP10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xb0-0xb9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Does nothing, ignored</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="#tx_script_ops_table_internal">Reserved OP codes for internal use by the parser</a> shows operator codes reserved for use by the internal script parser.</p>
+</div>
+<table id="tx_script_ops_table_internal" class="tableblock frame-all grid-all spread">
+<caption class="title">Table 10. Reserved OP codes for internal use by the parser</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Symbol</th>
+<th class="tableblock halign-left valign-top">Value (hex)</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_SMALLDATA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xf9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents small data field</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_SMALLINTEGER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xfa</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents small integer data field</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_PUBKEYS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xfb</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents public key fields</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_PUBKEYHASH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xfd</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents a public key hash field</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_PUBKEY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xfe</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents a public key field</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OP_INVALIDOPCODE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0xff</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents any OP code not currently assigned</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="appdx-bitcoinwhitepaper.html" class="navigation navigation-prev " aria-label="Previous page: Appendix A: The Bitcoin Whitepaper by Satoshi Nakamoto">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="appdx-bips.html" class="navigation navigation-next " aria-label="Next page: Appendix A: Bitcoin Improvement Proposals">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Appendix A: Transaction Script Language Operators, Constants, and Symbols","level":"1.17","depth":1,"next":{"title":"Appendix A: Bitcoin Improvement Proposals","level":"1.18","depth":1,"path":"appdx-bips.asciidoc","ref":"appdx-bips.asciidoc","articles":[]},"previous":{"title":"Appendix A: The Bitcoin Whitepaper by Satoshi Nakamoto","level":"1.16","depth":1,"path":"appdx-bitcoinwhitepaper.asciidoc","ref":"appdx-bitcoinwhitepaper.asciidoc","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"appdx-scriptops.asciidoc","mtime":"2019-08-27T08:57:50.141Z","type":"asciidoc"},"gitbook":{"version":"3.2.3","time":"2019-08-27T09:09:46.854Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
